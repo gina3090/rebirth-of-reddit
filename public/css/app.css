@@ -1,15 +1,223 @@
+@charset "UTF-8";
+/**
+ * Eric Meyer's CSS Reset + Nicolas Gallagher's Clearfix
+ * https://github.com/reefat/css-reset
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
 body {
-  background-color: orange; }
+  line-height: 1; }
 
-#postBox {
-  background-color: blue;
-  padding: 25px; }
+ol, ul {
+  list-style: none; }
 
-#imageBox {
-  background-color: purple; }
+blockquote, q {
+  quotes: none; }
 
-#titleBox {
-  background-color: green; }
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
 
-#authorBox {
-  background-color: yellow; }
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */ }
+
+.clearfix:after {
+  clear: both; }
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.clearfix {
+  *zoom: 1; }
+
+html {
+  background-image: url("./../assets/bg.jpg"); }
+
+header {
+  background-color: white;
+  height: 60px;
+  width: 100%; }
+
+.logo {
+  background-image: url("./../assets/logo.svg");
+  background-repeat: no-repeat;
+  background-position: left;
+  height: 100%;
+  width: 100%;
+  margin-left: 10px; }
+
+#plus {
+  border: 2px solid orange;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 10px;
+  right: 10px; }
+  #plus:after {
+    content: "+";
+    padding: 8px;
+    color: #b74326;
+    font-family: 'Lato', sans-serif;
+    font-size: 32px; }
+
+#plus:hover {
+  border-color: #f1592a;
+  background-color: #f1592a; }
+  #plus:hover::after {
+    color: white; }
+
+@media screen and (min-width: 600px) {
+  header {
+    background-image: url("./../assets/header_bg.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative; }
+  .logo {
+    background-position: bottom;
+    justify-content: center;
+    margin: auto; } }
+
+.menu {
+  background-color: #3a3a3c;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center; }
+
+#random, #boards, #app {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  color: gray;
+  flex-direction: column;
+  margin-top: 15px; }
+
+#random:before {
+  content: "RANDOM"; }
+
+#random:after {
+  content: "|";
+  padding: 10px; }
+
+@media screen and (min-width: 600px) {
+  #random:after {
+    content: "•"; } }
+
+#boards:before {
+  content: "MY BOARDS"; }
+
+#boards:after {
+  content: "|";
+  padding: 10px; }
+
+@media screen and (min-width: 600px) {
+  #boards:after {
+    content: "•"; } }
+
+#app:before {
+  content: "GET THE APP"; }
+
+#random:hover, #boards:hover, #app:hover {
+  color: #f1592a; }
+
+.main-box {
+  padding: 25px;
+  display: flex;
+  flex-flow: row wrap; }
+
+.post-box {
+  background-color: white;
+  border: 2px solid white;
+  padding: 25px;
+  margin: 25px;
+  width: 305px;
+  height: 375px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center; }
+
+.post-box:hover {
+  border: 8px solid #f7941e; }
+
+.title-box {
+  display: block;
+  overflow: hidden; }
+
+.date-box {
+  display: block;
+  white-space: nowrap; }
+
+h2 {
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  color: #3a3a3c; }
+
+span {
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  color: gray; }
+
+footer {
+  background-color: #3a3a3c;
+  background-image: url("./../assets/facebook_grey.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+
+.instagram {
+  background-image: url("./../assets/instagram_grey.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px; }
+
+.instagram:hover {
+  background-image: url("./../assets/instagram_orange.svg"); }
